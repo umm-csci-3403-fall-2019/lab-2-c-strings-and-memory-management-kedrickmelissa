@@ -1,8 +1,8 @@
 #include <stdlib.h>
-
 #include "disemvowel.h"
-
 #include <cstring>
+#include <string.h>
+
 
 
 int isVowel(char c){
@@ -16,43 +16,41 @@ int isVowel(char c){
 }
 
 
-int countConst(char str) {
+int countConst(char *str) {
   
-  int i = 1;
-  
-  if (isVowel(str)){
-	continue;
-  }
-  else
-  { 
-	i += 1;
+  int i = 0;
+  int n = 0;
+  for(n = 0; (unsigned)n < strlen(str); n++){
+	if (isVowel(str[n])){
+		continue;
+	}
+	else
+	{
+		i += 1;
+	}
   }
   return i;
 }
 
-
-
 char *disemvowel(char *str) {
 
-  char full[] = str
-  char new[countConst(str) + 1]
-  int c = 0;
+  char mynew[countConst(str) + 1];
+  int c;
 
-
-  for (c; full[c] != '\0'; c++) {
+  for (c = 0; (unsigned)c < strlen(str); c++) {
 	  //checks if the char at c is a vowel
-	if (isVowel(full[c])) {
+	if (isVowel(str[c])) {
 		continue;
 	}
 	else 
   	{
            //append const to array
-	  new[] == strcat(new[], c);
+	  strcat(mynew, str[c]);
 	}
-  return new[];
+  return (mynew);
   }
 
-  return (char*) new[];
+  return (char*) (mynew);
 }
 
 
