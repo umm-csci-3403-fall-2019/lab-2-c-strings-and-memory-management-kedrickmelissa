@@ -14,22 +14,22 @@ int isVowel(char c){
 
 
 char *disemvowel(char *str) {
-	int i = 0, c;
+	int i = 0, c = 0;
 
-	for (i = 0; str[i] != '\0'; i++) {
-		if(isVowel(str[i]) == 1) {
+	for (i = 0; (unsigned)i < strlen(str); i++) {
+		if(isVowel(str[i]) != 1) {
 			c++;
 		}
 	}
-	char *nStr = (char*)calloc(c+1, sizeof(char));
+	
+	char *nStr = (char*) calloc(c+1, sizeof(char));
 
-	 for(int j = 0, k = 0; j < i; j++) {
+	 for(int j = 0, k = 0; (unsigned)j < strlen(str); j++) {
 		 if(isVowel(str[j]) == 0) {
 			 nStr[k] = str[j];
 			 k++;
 		 }
-	 }
-	 nStr[c] = '\0';
+	 } 
 
 	return (char*) nStr;
 }
