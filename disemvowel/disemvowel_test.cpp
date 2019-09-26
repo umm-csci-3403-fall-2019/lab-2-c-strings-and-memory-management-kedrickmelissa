@@ -3,25 +3,33 @@
 #include "disemvowel.h"
 
 TEST(Disemvowel, HandleEmptyString) {
-  ASSERT_STREQ("", disemvowel((char*) ""));
+	char *filler = disemvowel((char*) "");
+  ASSERT_STREQ("", filler);
+	free(filler);
 }
 
 TEST(Disemvowel, HandleNoVowels) {
-  ASSERT_STREQ("pqrst", disemvowel((char*) "pqrst"));
+	char *filler = disemvowel((char*) "pqrst");
+  ASSERT_STREQ("pqrst", filler);
+	free(filler);
 }
 
 TEST(Disemvowel, HandleOnlyVowels) {
-  ASSERT_STREQ("", disemvowel((char*) "aeiouAEIOUOIEAuoiea"));
+	char *filler = disemvowel((char*) "aeiouAEIOUOIEAuoiea");
+  ASSERT_STREQ("", filler);
+  	free(filler);
 }
 
 TEST(Disemvowel, HandleMorrisMinnesota) {
-  ASSERT_STREQ("Mrrs, Mnnst",
-		      disemvowel((char*) "Morris, Minnesota"));
+	char *filler = disemvowel((char*) "Morris, Minnesota");
+  ASSERT_STREQ("Mrrs, Mnnst", filler);
+	free(filler);
 }
 
 TEST(Disemvowel, HandlePunctuation) {
-  ASSERT_STREQ("n (nxplnd) lphnt!", 
-		      disemvowel((char*) "An (Unexplained) Elephant!"));
+	char *filler = disemvowel((char*) "An (Unexplained) Elephant!");
+  ASSERT_STREQ("n (nxplnd) lphnt!", filler);
+  	free(filler);
 }
 
 TEST(Disemvowel, HandleLongString) {
